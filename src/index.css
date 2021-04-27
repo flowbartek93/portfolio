@@ -97,10 +97,22 @@ body {
   cursor: pointer;
 }
 
+.git-icon {
+  font-size: 5vw;
+  z-index: 300;
+  top: 60%;
+  left: 50%;
+  transform: translate(-40%, -10%);
+  color: white;
+  position: absolute;
+  filter: opacity(0.2);
+}
+
 .img-link {
   display: flex;
   flex-shrink: 0;
   justify-content: flex-end;
+  position: relative;
 }
 
 .img:hover {
@@ -109,6 +121,10 @@ body {
 /* home content */
 
 /* Description */
+
+.tag-color {
+  color: #4e2c5d;
+}
 
 .presentation {
 }
