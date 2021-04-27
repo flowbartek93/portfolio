@@ -13,15 +13,6 @@ const Home = () => {
     menu.classList.remove("menu--is-visible");
   };
 
-  const createOpenTag = () => {
-    const span = document.createElement("span");
-    span.classList.add("tag-color");
-
-    span.textContent = "&lt;";
-
-    return span;
-  };
-
   return (
     <>
       <div className="container">
@@ -50,26 +41,23 @@ const Home = () => {
               <img className="img" src={image} alt="" />
             </a>
             <div className="text">
-              <strong className="text-1">
-                {}
+              <Typewritter
+                options={{
+                  cursor: null
+                }}
+                onInit={typewritter => {
+                  typewritter.typeString(`<span class='tag-color'><i class="fas fa-chevron-left"></i></span>` + " Welcome" + "<div>to my world <span class='tag-color'>/<i class='fas fa-chevron-right'></i></span></div>").start();
+                }}
+              />
 
-                <Typewritter
-                  options={{
-                    cursor: null
-                  }}
-                  onInit={typewritter => {
-                    typewritter.typeString(`${createOpenTag().outerHTML}Welcome`).start();
-                  }}
-                />
-              </strong>
-              <strong className="text-2">
+              {/* <strong className="text-2">
                 {" "}
                 <Typewritter
                   options={{
                     cursor: null
                   }}
                   onInit={typewritter => {
-                    typewritter.typeString(`To`).start();
+                    typewritter.typeString(`to`).start();
                   }}
                 />
               </strong>
@@ -80,10 +68,10 @@ const Home = () => {
                     cursor: null
                   }}
                   onInit={typewritter => {
-                    typewritter.typeString(`My world />`).start();
+                    typewritter.typeString(`my world ` + `<span class='tag-color'><span class='tag-slash'>/</span><i class="fas fa-chevron-right"></i></span>`).start();
                   }}
                 />
-              </strong>
+              </strong> */}
             </div>
           </div>
         </div>
