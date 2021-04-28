@@ -1,8 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import image from "./images/IMG_2006.JPG";
-import { useImmer } from "use-immer";
+
 import Typewritter from "typewriter-effect";
+import ArrowDown from "./images/down-1.1s-200px.png";
+import About from "./About";
+
 const Home = () => {
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+
   const openMenu = () => {
     const menu = document.querySelector(".menu");
     menu.classList.add("menu--is-visible");
@@ -11,6 +16,10 @@ const Home = () => {
   const closeMenu = () => {
     const menu = document.querySelector(".menu");
     menu.classList.remove("menu--is-visible");
+  };
+
+  const switchPage = () => {
+    setIsAboutOpen(true);
   };
 
   return (
@@ -49,30 +58,13 @@ const Home = () => {
                   typewritter.typeString(`<span class='tag-color'><i class="fas fa-chevron-left"></i></span>` + " Welcome" + "<div>to my world <span class='tag-color'>/<i class='fas fa-chevron-right'></i></span></div>").start();
                 }}
               />
-
-              {/* <strong className="text-2">
-                {" "}
-                <Typewritter
-                  options={{
-                    cursor: null
-                  }}
-                  onInit={typewritter => {
-                    typewritter.typeString(`to`).start();
-                  }}
-                />
-              </strong>
-              <strong className="text-3">
-                {" "}
-                <Typewritter
-                  options={{
-                    cursor: null
-                  }}
-                  onInit={typewritter => {
-                    typewritter.typeString(`my world ` + `<span class='tag-color'><span class='tag-slash'>/</span><i class="fas fa-chevron-right"></i></span>`).start();
-                  }}
-                />
-              </strong> */}
             </div>
+
+            <span onClick={switchPage} className="arrow-icon-down">
+              <img className="arrow-icon" src={ArrowDown} alt="arrow-down" />
+            </span>
+
+            {!isAboutOpen ? <About /> : <About classMove={"move"} setClass={setIsAboutOpen} />}
           </div>
         </div>
       </div>

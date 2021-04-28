@@ -14,9 +14,10 @@ body {
   background-color: #200a24;
   font-family: "Dosis", sans-serif;
   color: whitesmoke;
+  overflow: hidden;
 }
 
-/* Nawigacja */
+/* Nav*/
 .nav {
   font-size: 3rem;
   height: 15rem;
@@ -42,6 +43,8 @@ body {
 .hamburger-icon:hover {
   transform: scale(1.1);
 }
+
+/* end of Nav*/
 
 /* Menu */
 .menu {
@@ -78,13 +81,14 @@ body {
   list-style: none;
 }
 
-/* Menu */
+/* end of  Menu */
 
 /* home content */
 .main-description {
   display: flex;
   margin: 3rem;
   justify-content: center;
+  position: relative;
 }
 
 .img {
@@ -118,7 +122,7 @@ body {
 .img:hover {
   filter: grayscale(0);
 }
-/* home content */
+/* end of home content */
 
 /* Description */
 
@@ -128,9 +132,6 @@ body {
 
 .tag-slash {
   font-weight: 900;
-}
-
-.presentation {
 }
 
 .text-2 {
@@ -146,7 +147,48 @@ body {
   margin-left: 2rem;
 }
 
-/* Description */
+/* end of Description */
+
+/* Arrow icons */
+
+.arrow-icon-down {
+  position: absolute;
+  animation: arrow-down 0.8s infinite ease-in-out alternate;
+  cursor: pointer;
+  z-index: 500;
+}
+
+.arrow-icon-up {
+  position: absolute;
+  animation: arrow-down 0.8s infinite ease-in-out alternate;
+  cursor: pointer;
+  z-index: 600;
+}
+
+.arrow-icon {
+  height: 10vw;
+  width: 10vw;
+}
+
+/* end of Arrow icons */
+
+/* About Section */
+
+.about-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: -100%;
+  background-color: #2a132f;
+  transition: all 1s ease-in-out;
+  z-index: 500;
+}
+
+.about-container.move {
+  top: 0%;
+}
+
+/* Enf of  About Section */
 
 @media screen and (max-width: 400px) {
   .hamburger-icon {
@@ -158,7 +200,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-
+    position: static;
     flex-direction: column;
   }
 
@@ -172,5 +214,43 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
+  }
+
+  .arrow-icon-down {
+    position: absolute;
+    animation: arrow-down-mobile 0.8s infinite ease-in-out alternate;
+    cursor: pointer;
+    z-index: 500;
+    transform: translateX(-50%);
+  }
+  .arrow-icon-svg {
+    height: 20vw;
+    width: 20vw;
+  }
+}
+
+/* Animations */
+
+@keyframes arrow-down {
+  0% {
+    left: 60%;
+    top: 65%;
+  }
+
+  100% {
+    left: 60%;
+    top: 70%;
+  }
+}
+
+@keyframes arrow-down-mobile {
+  0% {
+    left: 50%;
+    top: 60%;
+  }
+
+  100% {
+    left: 50%;
+    top: 59%;
   }
 }
