@@ -59,14 +59,13 @@ const Home = () => {
                 }}
               />
             </div>
-
-            <span onClick={switchPage} className="arrow-icon-down">
-              <img className="arrow-icon" src={ArrowDown} alt="arrow-down" />
-            </span>
-
-            {!isAboutOpen ? <About /> : <About classMove={"move"} setClass={setIsAboutOpen} />}
           </div>
+          <span onClick={switchPage} className="arrow-icon-down">
+            <img className="arrow-icon" src={ArrowDown} alt="arrow-down" />
+          </span>
         </div>
+
+        {!isAboutOpen ? <About /> : <About classMove={"move"} setClass={setIsAboutOpen} />}
       </div>
     </>
   );
