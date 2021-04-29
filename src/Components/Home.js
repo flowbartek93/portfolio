@@ -19,13 +19,13 @@ const Home = () => {
 
         <div className="presentation">
           <div className="main-description">
-            <a className="img-link" target="_blank" href="https://github.com/flowbartek93">
-              {" "}
+            <div className="img-photo-container">
+              <img className="img-photo" src={image} alt="" />
               <span className="git-icon">
                 <i className="fab fa-github"></i>
               </span>
-              <img className="img" src={image} alt="" />
-            </a>
+            </div>
+
             <div className="text">
               <Typewritter
                 options={{
