@@ -43,9 +43,11 @@ body {
   transform: scale(1.1);
 }
 
-/* end of Nav*/
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
 
-/* Menu */
 .menu {
   background-color: #4e2c5d;
   border-radius: 50%;
@@ -75,14 +77,14 @@ body {
   position: absolute;
   top: 50%;
   right: 50%;
-  transform: translate(-50%, 30%);
+  transform: translate(-30%, 30%);
   z-index: 200;
   list-style: none;
 }
 
-/* end of  Menu */
+/* END OF NAV */
 
-/* home content */
+/* HOME CONTENT */
 .main-description {
   display: flex;
   margin: 3rem;
@@ -121,9 +123,6 @@ body {
 .img:hover {
   filter: grayscale(0);
 }
-/* end of home content */
-
-/* Description */
 
 .tag-color {
   color: #4e2c5d;
@@ -146,9 +145,9 @@ body {
   margin-left: 2rem;
 }
 
-/* end of Description */
+/* END OF HOME CONTENT */
 
-/* Arrow icons */
+/* ARROW ICONS SETTINGS */
 
 .arrow-icon-down {
   display: block;
@@ -158,7 +157,6 @@ body {
   cursor: pointer;
   z-index: 500;
   right: -60%;
-  top: -20%;
 }
 
 /* container for arrow up */
@@ -180,42 +178,108 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* .arrow-up-container {
+.arrow-up-container {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   height: 100px;
   width: 100px;
-} */
+}
 
-/* end of Arrow icons */
+/* END OF ARROW ICONS SETTINGS */
 
-/* About Section */
+/* ABOUT SECTION */
 
 .about-container {
   position: fixed;
-  height: 100%;
+  top: 0;
+  left: 0;
+  height: 0;
   width: 100%;
-  top: -150%;
   background-color: #2a132f;
   transition: all 1s ease-in-out;
   z-index: 500;
+  overflow: hidden;
 }
 
 .about-container.move {
-  top: 0%;
+  height: 100%;
+  overflow: scroll;
 }
 
 .about-text {
-  width: 50vw;
+  width: max(300px, 50%);
   margin: 0 auto;
-  font-size: 1vw;
+  font-size: clamp(1.5rem, 1vw + 0.5rem, 2rem);
   font-weight: 500;
   padding: 10rem 0;
 }
 
-/* Enf of  About Section */
+/* END OF ABOUT SECTION */
+
+/* PROJECTS SECTION */
+
+.projects-container {
+  width: max(70%, 400px);
+  margin: 0 auto;
+  height: max-content;
+}
+
+.projects-grid-container {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 8rem;
+  padding: 5rem 0;
+}
+
+.projects-grid-container > .grid-item {
+  width: 100%;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-item div {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  outline: 0.8rem solid #4e2c5d;
+  flex-shrink: 0;
+}
+
+.grid-item div img {
+  height: 100%;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  object-fit: cover;
+}
+
+.grid-item:hover img {
+  transform: scale(1.1);
+  filter: opacity(0.8);
+}
+
+.projects-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 1vw + 0.5rem, 2rem);
+}
+
+.grid-item > .project-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 1vw + 0.5rem, 2rem);
+  padding: 2rem 0;
+}
+
+/* END OF PROJECTS SECTION */
+
+/* MEDIA QUERRIES */
 
 @media screen and (max-width: 400px) {
   .hamburger-icon {
@@ -243,25 +307,19 @@ body {
     margin-top: 2rem;
   }
 
-  .arrow-icon-down {
-    position: absolute;
-    animation: arrow-down-mobile 0.8s infinite ease-in-out alternate;
-    cursor: pointer;
-    z-index: 500;
-    transform: translateX(-50%);
-  }
-  .arrow-icon-svg {
-    height: 20vw;
-    width: 20vw;
+  .arrow-icon {
+    height: auto;
+    width: 5rem;
   }
 
-  .about-text {
-    font-size: 5vw;
-    width: 100%;
+  .arrow-icon-down {
+    right: -50%;
+    top: -20%;
+    transform: translateX(-50%);
   }
 }
 
-/* Animations */
+/* ANIMATIONS */
 
 @keyframes arrow-down {
   0% {

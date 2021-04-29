@@ -1,22 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
-import image from "./images/IMG_2006.JPG";
-
+import React, { useState } from "react";
+import image from "../images/IMG_2006.JPG";
 import Typewritter from "typewriter-effect";
-import ArrowDown from "./images/down-1.1s-200px.png";
+import ArrowDown from "../images/down-1.1s-200px.png";
 import About from "./About";
+import Navigation from "./Navigation";
 
 const Home = () => {
   const [isAboutOpen, setIsAboutOpen] = useState(false);
-
-  const openMenu = () => {
-    const menu = document.querySelector(".menu");
-    menu.classList.add("menu--is-visible");
-  };
-
-  const closeMenu = () => {
-    const menu = document.querySelector(".menu");
-    menu.classList.remove("menu--is-visible");
-  };
 
   const switchPage = () => {
     setIsAboutOpen(true);
@@ -25,20 +15,7 @@ const Home = () => {
   return (
     <>
       <div className="container">
-        <nav className="nav">
-          <span onClick={openMenu} className="hamburger-icon">
-            <i className="fas fa-bars"></i>
-          </span>
-
-          <div onClick={closeMenu} className="menu">
-            {" "}
-            <ul className="nav-list">
-              <li className="nav-item">Home</li>
-              <li className="nav-item">Projects</li>
-              <li className="nav-item">Contact</li>
-            </ul>
-          </div>
-        </nav>
+        <Navigation />
 
         <div className="presentation">
           <div className="main-description">
