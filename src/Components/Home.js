@@ -21,8 +21,12 @@ const Home = () => {
           <div className="main-description">
             <div className="img-photo-container">
               <img className="img-photo" src={image} alt="" />
+
               <span className="git-icon">
-                <i className="fab fa-github"></i>
+                <a className="portfolio-link" href="https://github.com/flowbartek93" target="_blank">
+                  <i class="fab fa-github-square"></i>
+                </a>
+                <p>My Github page</p>
               </span>
             </div>
 
