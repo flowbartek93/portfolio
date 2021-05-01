@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import image from "../images/IMG_2006.JPG";
-import Typewritter from "typewriter-effect";
 import ArrowDown from "../images/down-1.1s-200px.png";
 import About from "./About";
 import Navigation from "./Navigation";
@@ -11,6 +10,36 @@ const Home = () => {
   const switchPage = () => {
     setIsAboutOpen(true);
   };
+
+  const typewrite = () => {
+    const typewriteText = " Welcome to my world ";
+    const indent = document.createElement("div");
+    const textContainer = document.querySelector(".text > .text-title");
+
+    let index = 0;
+
+    const type = setInterval(() => {
+      if (index === 0) {
+        document.querySelector(".open-tag").textContent = "<";
+      }
+
+      textContainer.textContent += typewriteText[index];
+
+      if (index === 8) {
+        textContainer.appendChild(indent);
+      }
+      index++;
+      console.log(index);
+      if (index === typewriteText.length) {
+        document.querySelector(".close-tag").textContent = "/>";
+        clearInterval(type);
+      }
+    }, 200);
+  };
+
+  useEffect(() => {
+    typewrite();
+  }, []);
 
   return (
     <>
@@ -24,21 +53,16 @@ const Home = () => {
 
               <span className="git-icon">
                 <a className="portfolio-link" href="https://github.com/flowbartek93" target="_blank">
-                  <i class="fab fa-github-square"></i>
+                  <i className="fab fa-github-square"></i>
                 </a>
                 <p>My Github page</p>
               </span>
             </div>
 
             <div className="text">
-              <Typewritter
-                options={{
-                  cursor: null
-                }}
-                onInit={typewritter => {
-                  typewritter.typeString(`<span class='tag-color'><i class="fas fa-chevron-left"></i></span>` + " Welcome" + "<div>to my world <span class='tag-color'>/<i class='fas fa-chevron-right'></i></span></div>").start();
-                }}
-              />
+              <span className="tag-color open-tag"></span>
+              <span className="text-title"></span>
+              <span className="tag-color close-tag"></span>
             </div>
           </div>
           <span onClick={switchPage} className="arrow-icon-down">

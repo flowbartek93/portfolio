@@ -200,6 +200,14 @@ body {
   justify-content: center;
   flex-shrink: 0;
   margin-left: 2rem;
+
+  flex-wrap: nowrap;
+}
+
+.open-tag {
+}
+
+.close-tag {
 }
 
 /* END OF HOME CONTENT */
@@ -358,10 +366,11 @@ body {
 
   .text {
     font-size: 10vw;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+    width: 80%;
+    display: block;
     margin-top: 2rem;
+    margin-left: 0;
+    text-align: center;
   }
 
   .arrow-icon {
