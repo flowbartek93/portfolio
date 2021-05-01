@@ -195,13 +195,13 @@ body {
 .text {
   font-size: 5vw;
   font-weight: 700;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   flex-shrink: 0;
   margin-left: 2rem;
-
-  flex-wrap: nowrap;
+  place-self: center;
+  /* flex-wrap: nowrap; */
 }
 
 .open-tag {
@@ -366,11 +366,10 @@ body {
 
   .text {
     font-size: 10vw;
-    width: 80%;
+
     display: block;
     margin-top: 2rem;
     margin-left: 0;
-    text-align: center;
   }
 
   .arrow-icon {

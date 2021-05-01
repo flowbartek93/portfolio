@@ -12,26 +12,32 @@ const Home = () => {
   };
 
   const typewrite = () => {
-    const typewriteText = " Welcome to my world ";
+    const typewriteText = "Welcome to my world";
     const indent = document.createElement("div");
     const textContainer = document.querySelector(".text > .text-title");
+    const openTag = document.querySelector(".open-tag");
+    const closeTag = document.querySelector(".close-tag");
 
     let index = 0;
 
+    textContainer.textContent = "";
+    openTag.textContent = "";
+    closeTag.textContent = "";
+
     const type = setInterval(() => {
       if (index === 0) {
-        document.querySelector(".open-tag").textContent = "<";
+        openTag.textContent = "< ";
       }
 
-      textContainer.textContent += typewriteText[index];
+      textContainer.innerHTML += typewriteText[index];
 
-      if (index === 8) {
+      if (index === 7) {
         textContainer.appendChild(indent);
       }
       index++;
       console.log(index);
       if (index === typewriteText.length) {
-        document.querySelector(".close-tag").textContent = "/>";
+        closeTag.textContent = " />";
         clearInterval(type);
       }
     }, 200);
